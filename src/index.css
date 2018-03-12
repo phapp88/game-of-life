@@ -1,0 +1,88 @@
+body {
+  background: BlueViolet;
+  background: radial-gradient(BlueViolet, black);
+  color: #ddc460;
+  font: 19px "Exo 2";
+  margin: 0;
+  text-align: center;
+}
+
+button {
+  background-color: black;
+  color: #ddc460;
+  font: 19px "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.btn--active {
+  background-color: #c18ff0;
+}
+
+canvas {
+  border: 10px solid #343436;
+  border-radius: 10px;
+  box-shadow: 0 12px 18px 6px rgba(0, 0, 0, 0.55);
+}
+
+.game-board {
+  border: 10px solid #343436;
+  border-radius: 10px;
+  box-shadow: 0 12px 18px 6px rgba(0, 0, 0, 0.55);
+  margin: auto;
+}
+
+.game-board-footer {
+  background-color: #343436;
+  border-radius: 0 0 10px 10px;
+  bottom: 5px;
+  display: grid;
+  grid: repeat(2, 33px) / repeat(4, 154.5px);
+  grid-gap: 5px;
+  margin: auto;
+  padding: 5px;
+  position: relative;
+  width: 640px;
+  z-index: 1;
+}
+
+.game-board-footer p {
+  line-height: 33px;
+  height: 33px;
+  margin: 0;
+}
+
+.game-board-header {
+  background-color: #343436;
+  display: grid;
+  grid: 33px / 45px repeat(3, 108.33px) 245px;
+  grid-gap: 5px;
+  font-size: 19px;
+  margin: 20px auto 0 auto;
+  padding: 10px 0;
+  width: 640px;
+}
+
+.game-board-header p {
+  line-height: 33px;
+  margin: 0;
+}
+
+.main-footer {
+  background-color: #343436;
+  border-radius: 10px;
+  font-size: 17px;
+  padding: 10px;
+  margin: 20px auto;
+  width: 630px;
+}
+
+.main-header {
+  background-color: #343436;
+  font-size: 30px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.main-header a {
+  color: #ddc460;
+  text-decoration: none;
+}
