@@ -1,32 +1,57 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const GameBoardFooter = ({ changeSize, changeSpeed }) => {
+const GameBoardFooter = ({
+  changeSize, changeSpeed, delay, gridWidth,
+}) => {
   const handleSizeChange = (event) => {
     const [numCols, numRows] = event.target.textContent.split(' x ').map(Number);
-    const sizeBtns = document.querySelectorAll('.btn--size');
-    sizeBtns.forEach(btn => btn.classList.remove('btn--active'));
-    event.target.classList.add('btn--active');
     changeSize(numCols, numRows);
   };
+  const handleSpeedChange = (event) => { changeSpeed(event.target.textContent); };
 
-  const handleSpeedChange = (event) => {
-    const speedBtns = document.querySelectorAll('.btn--speed');
-    speedBtns.forEach(btn => btn.classList.remove('btn--active'));
-    event.target.classList.add('btn--active');
-    changeSpeed(event.target.textContent);
-  };
+  const gridIsLarge = gridWidth > 450;
+  const className = gridIsLarge
+    ? 'game-board-footer'
+    : 'game-board-footer game-board-footer--mobile';
 
   return (
-    <footer className="game-board-footer">
-      <p>Board Size:</p>
-      <button className="btn--size" onClick={handleSizeChange}>50 x 30</button>
-      <button className="btn--size btn--active" onClick={handleSizeChange}>70 x 50</button>
-      <button className="btn--size" onClick={handleSizeChange}>100 x 80</button>
-      <p>Sim Speed:</p>
-      <button className="btn--speed" onClick={handleSpeedChange}>Slow</button>
-      <button className="btn--speed" onClick={handleSpeedChange}>Medium</button>
-      <button className="btn--speed btn--active" onClick={handleSpeedChange}>Fast</button>
+    <footer className={className}>
+      {gridIsLarge && <p>Board Size:</p>}
+      {gridIsLarge &&
+        <button
+          className={gridWidth === 700 ? 'btn--size btn--active' : 'btn--size'}
+          onClick={handleSizeChange}
+        >50 x 30
+        </button>}
+      {gridIsLarge &&
+        <button
+          className={gridWidth === 840 ? 'btn--size btn--active' : 'btn--size'}
+          onClick={handleSizeChange}
+        >70 x 50
+        </button>}
+      {gridIsLarge &&
+        <button
+          className={gridWidth === 1000 ? 'btn--size btn--active' : 'btn--size'}
+          onClick={handleSizeChange}
+        >100 x 80
+        </button>}
+      {gridIsLarge && <p>Sim Speed:</p>}
+      <button
+        className={delay === 210 ? 'btn--speed btn--active' : 'btn-speed'}
+        onClick={handleSpeedChange}
+      >Slow
+      </button>
+      <button
+        className={delay === 140 ? 'btn--speed btn--active' : 'btn-speed'}
+        onClick={handleSpeedChange}
+      >Medium
+      </button>
+      <button
+        className={delay === 70 ? 'btn--speed btn--active' : 'btn-speed'}
+        onClick={handleSpeedChange}
+      >Fast
+      </button>
     </footer>
   );
 };
@@ -34,6 +59,8 @@ const GameBoardFooter = ({ changeSize, changeSpeed }) => {
 GameBoardFooter.propTypes = {
   changeSize: PropTypes.func.isRequired,
   changeSpeed: PropTypes.func.isRequired,
+  delay: PropTypes.number.isRequired,
+  gridWidth: PropTypes.number.isRequired,
 };
 
 export default GameBoardFooter;

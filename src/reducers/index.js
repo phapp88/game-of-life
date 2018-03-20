@@ -1,3 +1,29 @@
+const maxGridDims = (screenWidth) => {
+  let dims = {};
+  if (screenWidth < 500) {
+    dims = {
+      gridHeight: 180, gridWidth: 300, numCols: 25, numRows: 15,
+    };
+  } else if (screenWidth < 750) {
+    dims = {
+      gridHeight: 270, gridWidth: 450, numCols: 37, numRows: 23,
+    };
+  } else if (screenWidth < 900) {
+    dims = {
+      gridHeight: 420, gridWidth: 700, numCols: 50, numRows: 30,
+    };
+  } else if (screenWidth < 1075) {
+    dims = {
+      gridHeight: 600, gridWidth: 840, numCols: 70, numRows: 50,
+    };
+  } else {
+    dims = {
+      gridHeight: 800, gridWidth: 1000, numCols: 100, numRows: 80,
+    };
+  }
+  return dims;
+};
+
 const nextGen = (grid) => {
   const numRows = grid.length;
   const numCols = grid[0].length;
@@ -24,13 +50,23 @@ const randomGrid = (numCols, numRows) =>
   Array.from({ length: numRows }, () =>
     Array.from({ length: numCols }, () => Math.random() >= 0.6));
 
-const initialState = {
-  delay: 70,
-  generation: 0,
-  grid: randomGrid(70, 50),
-  gridHeight: 600,
-  gridWidth: 840,
+const getInitialState = () => {
+  const {
+    gridHeight,
+    gridWidth,
+    numCols,
+    numRows,
+  } = maxGridDims(window.innerWidth);
+  return {
+    delay: 70,
+    generation: 0,
+    grid: randomGrid(numCols, numRows),
+    gridHeight,
+    gridWidth,
+  };
 };
+
+const initialState = getInitialState();
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {

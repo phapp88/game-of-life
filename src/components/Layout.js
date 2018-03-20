@@ -61,13 +61,14 @@ class Layout extends Component {
 
   render() {
     const {
-      addCell, changeSize, changeSpeed, grid, generation, gridHeight, gridWidth,
+      addCell, changeSize, changeSpeed, delay, grid, generation, gridHeight, gridWidth,
     } = this.props;
     return (
       <main>
         <Header />
         <GameBoardHeader
           generation={generation}
+          gridWidth={gridWidth}
           clear={this.clear}
           pause={this.pause}
           start={this.start}
@@ -78,7 +79,12 @@ class Layout extends Component {
           height={gridHeight}
           width={gridWidth}
         />
-        <GameBoardFooter changeSize={changeSize} changeSpeed={changeSpeed} />
+        <GameBoardFooter
+          changeSize={changeSize}
+          changeSpeed={changeSpeed}
+          delay={delay}
+          gridWidth={gridWidth}
+        />
         <Footer />
       </main>
     );

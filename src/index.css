@@ -38,7 +38,7 @@ canvas {
   grid: repeat(2, 33px) / repeat(4, 154.5px);
   grid-gap: 5px;
   margin: auto;
-  padding: 5px;
+  padding: 10px;
   position: relative;
   width: 640px;
   z-index: 1;
@@ -50,6 +50,11 @@ canvas {
   margin: 0;
 }
 
+.game-board-footer--mobile {
+  grid: 33px / repeat(3, 90px);
+  width: 280px;
+}
+
 .game-board-header {
   background-color: #343436;
   display: grid;
@@ -59,6 +64,11 @@ canvas {
   margin: 20px auto 0 auto;
   padding: 10px 0;
   width: 640px;
+}
+
+.game-board-header--mobile {
+  grid-template-columns: 5px repeat(3, 70px) 55px;
+  width: 300px;
 }
 
 .game-board-header p {
@@ -85,4 +95,24 @@ canvas {
 .main-header a {
   color: #ddc460;
   text-decoration: none;
+}
+
+@media (max-width: 700px) {
+  .main-footer {
+    width: 90%;
+  }
+
+  .main-header a {
+    display: none;
+  }
+}
+
+@media (max-width: 325px) {
+  .main-footer {
+    font-size: 14px;
+  }
+
+  .main-header {
+    font-size: 24px;
+  }
 }
