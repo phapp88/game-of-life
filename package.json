@@ -3,28 +3,35 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "gh-pages": "^1.2.0",
-    "prop-types": "^15.6.1",
-    "react": "^16.2.0",
+    "gh-pages": "^3.1.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-redux": "^5.0.6",
-    "redux": "^3.7.2"
+    "react-redux": "^7.2.1",
+    "redux": "^4.0.5"
   },
   "devDependencies": {
-    "eslint": "^4.18.2",
-    "eslint-config-airbnb": "^16.1.0",
-    "eslint-plugin-import": "^2.9.0",
-    "eslint-plugin-jsx-a11y": "^6.0.3",
-    "eslint-plugin-react": "^7.7.0",
-    "react-scripts": "2.1.3"
+    "react-scripts": "3.4.3"
   },
   "scripts": {
-    "predeploy": "npm run build",
+    "predeploy": "npm run-script build",
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "homepage": "https://phapp88.github.io/game-of-life"
+  "homepage": "https://phapp88.github.io/game-of-life",
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }
